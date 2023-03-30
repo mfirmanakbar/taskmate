@@ -8,9 +8,9 @@ export default function App() {
     <>
     <Header/>
     <div>
-      <h1 className='active'>{username}</h1>
-      <p>Lorem ipsum dolor, placeat.</p>
-    </div>
+      <h1>{username}</h1>
+      <p className="active">Hello</p>
+      </div>
     <Footer/>
     </>
   )
