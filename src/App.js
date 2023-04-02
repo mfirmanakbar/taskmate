@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-export default function App() {
+function App() {
   const [tasks, setTasks] = useState(
     [
       {id: 5271, name: "Record React Lectures", completed: true},
@@ -9,6 +9,8 @@ export default function App() {
       {id: 8391, name: "Warch Lectures", completed: false}
     ]
   );
+
+  const [show, setShow] = useState(true);
 
   // we remove it by filter and the useState will be changed
   function handleDelete(id) {
@@ -19,8 +21,9 @@ export default function App() {
    <div className='App'>
     <h1>Task List</h1>
     <ul>
-      {tasks.map((task) => (
-        <li key={task.id}>
+      <button onClick={() => setShow(!show)} className='trigger'>Toggle</button>
+      {show && tasks.map((task) => (
+        <li key={task.id} className={task.completed ? 'completed' : 'incomplete'}>
           <span>{task.id} - {task.name}</span>
           <button onClick={() => handleDelete(task.id)} className='delete'>Delete</button>
         </li>
@@ -29,3 +32,5 @@ export default function App() {
    </div>
   )
 }
+
+export default App;
