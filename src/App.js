@@ -2,35 +2,25 @@ import { useState } from 'react';
 import './App.css';
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  function handleAdd() {
-    setCount(count + 1);
-  }
-
-  function handleSub() {
-    setCount(count - 1);
-  }
-
-  function handleReset() {
-    setCount(0);
-  }
+  const [tasks, setTasks] = useState(
+    [
+      {id: 5271, name: "Record React Lectures", completed: true},
+      {id: 7825, name: "Edit React Lectures", completed: false},
+      {id: 8391, name: "Warch Lectures", completed: false}
+    ]
+  );
 
   return (
    <div className='App'>
-    <div className='box'>
-      <p>{count}</p>
-      
-      <button onClick={handleAdd} className='add'>ADD</button>
-      <button onClick={handleSub} className='sub'>SUB</button>
-      <button onClick={handleReset} className='reset'>RESET</button>
-
-      {/* or we also can use anonymous function */}
-      {/* <button onClick={() => setCount(count + 1)} className='add'>ADD</button>
-      <button onClick={() => setCount(count - 1)} className='sub'>SUB</button>
-      <button onClick={() => setCount(0)} className='reset'>RESET</button> */}
-
-    </div>
+    <h1>Task List</h1>
+    <ul>
+      {tasks.map((task) => (
+        <li key={task.id}>
+          <span>{task.id} - {task.name}</span>
+          <button className='delete'>Delete</button>
+        </li>
+      ))}
+    </ul>
    </div>
   )
 }
