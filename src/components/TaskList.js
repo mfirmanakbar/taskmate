@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TaskCard } from './TaskCard';
 
 export const TaskList = (props) => {
     const [tasks, setTasks] = useState(
@@ -20,12 +21,11 @@ export const TaskList = (props) => {
             <h1>Task List {props.title}</h1>
             <ul>
             <button onClick={() => setShow(!show)} className='trigger'>Toggle</button>
-            {show && tasks.map((task) => (
-                <li key={task.id} className={task.completed ? 'completed' : 'incomplete'}>
-                <span>{task.id} - {task.name}</span>
-                <button onClick={() => handleDelete(task.id)} className='delete'>Delete</button>
-                </li>
-            ))}
+            {
+                show && tasks.map((task) => (
+                    <TaskCard task={task} handleDelete={handleDelete} key={task.id} />
+                ))
+            }
             </ul>
         </>
     )
