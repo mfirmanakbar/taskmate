@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TaskCard } from './TaskCard';
 import { BoxCard } from './BoxCard';
+import "./TaskList.css";
 
 export const TaskList = (props) => { // bisa juga langsung => export const TaskList = (title, info)
     const [tasks, setTasks] = useState(
@@ -18,7 +19,7 @@ export const TaskList = (props) => { // bisa juga langsung => export const TaskL
     }
     
     return (
-        <>
+        <section className='tasklist'>
             <h1>Task List {props.title}</h1>
             <ul>
                 <button onClick={() => setShow(!show)} className='trigger'>Toggle</button>
@@ -41,6 +42,6 @@ export const TaskList = (props) => { // bisa juga langsung => export const TaskL
                 <p className='title'>Title</p>
                 <p className='description'>Description</p>
             </BoxCard>
-        </>
+        </section>
     )
 }

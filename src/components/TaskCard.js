@@ -1,3 +1,17 @@
+import "./TaskCard.css";
+
+// SIMPLE SOLUTION
+export const TaskCard = ({task, handleDelete, info}) => {
+    return (
+      <div className="taskcard">
+          <li className={task.completed ? 'completed' : 'incomplete'}>
+              <span>{task.id} - {task.name} - {info}</span>
+              <button className='delete' onClick={() => handleDelete(task.id)}>Delete</button>
+          </li>
+      </div>
+    )
+}
+
 // LONG SOLUTION
 // export const TaskCard = (props) => {
 //   return (
@@ -9,15 +23,3 @@
 //     </>
 //   )
 // }
-
-// SIMPLE SOLUTION
-export const TaskCard = ({task, handleDelete, info}) => {
-    return (
-      <>
-          <li className={task.completed ? 'completed' : 'incomplete'}>
-              <span>{task.id} - {task.name} - {info}</span>
-              <button className='delete' onClick={() => handleDelete(task.id)}>Delete</button>
-          </li>
-      </>
-    )
-}
