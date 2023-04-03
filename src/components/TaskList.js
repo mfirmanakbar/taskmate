@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { TaskCard } from './TaskCard';
 import { BoxCard } from './BoxCard';
 
-export const TaskList = (props) => {
+export const TaskList = (props) => { // bisa juga langsung => export const TaskList = (title, info)
     const [tasks, setTasks] = useState(
         [
             {id: 5271, name: "Record React Lectures", completed: true},
@@ -24,7 +24,7 @@ export const TaskList = (props) => {
                 <button onClick={() => setShow(!show)} className='trigger'>Toggle</button>
                 {
                     show && tasks.map((task) => (
-                        <TaskCard task={task} handleDelete={handleDelete} key={task.id} />
+                        <TaskCard task={task} handleDelete={handleDelete} key={task.id} info={props.info} />
                     ))
                 }
             </ul>
