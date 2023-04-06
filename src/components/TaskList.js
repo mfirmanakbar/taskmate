@@ -20,9 +20,11 @@ export const TaskList = (props) => { // bisa juga langsung => export const TaskL
     
     return (
         <section className='tasklist'>
-            <h1>Task List {props.title}</h1>
             <ul>
-                <button onClick={() => setShow(!show)} className='trigger'>Toggle</button>
+                <div className='header'>
+                    <h1>Task List {props.title}</h1>
+                    <button onClick={() => setShow(!show)} className='trigger'>Toggle</button>
+                </div>
                 {
                     show && tasks.map((task) => (
                         <TaskCard task={task} handleDelete={handleDelete} key={task.id} info={props.info} />
